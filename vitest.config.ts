@@ -7,7 +7,7 @@ export default mergeConfig(
   defineConfig({
     test: {
       globals: true,
-      setupFiles: './tests/setup',
+      setupFiles: [],
       environment: 'jsdom',
       coverage: {
         thresholds: {

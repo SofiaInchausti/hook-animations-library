@@ -22,8 +22,13 @@ export default defineConfig({
         }
       }
 
+      
     }
+    
   },
+  
+  
   plugins: [react(), dts({include: ['src'], exclude: ['**/*/tests.ts']})],
+
 })
 
