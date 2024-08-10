@@ -6,46 +6,45 @@ import { useAxios } from "../useAxios";
 import { describe, expect, it } from "vitest";
 
 describe("useAxios", () => {
-  // it("throws error if config is undefined", () => {
-  //   const config = undefined;
-  //    //@ts-expect-error: checking undefined config
-  //   expect(() => renderHook(() => useAxios(config))).toThrowError(
-  //     "useAxios must be initialized with config params"
-  //   );
-  // });
-  // it("throw error if config is undefined", () => {
-  //   try {
-  //     const config = undefined;
-  //     //@ts-expect-error: checking undefined config
-  //     renderHook(() => useAxios(config));
-  //   } catch (error) {
-  //     if (error instanceof Error) {
-  //       expect(error).toBeInstanceOf(Error);
-  //       expect(error.message).toBe(
-  //         "useAxios must be initialized with config params"
-  //       );
-  //     }
-  //   }
-  // });
-  // it('throw error if the config missing a parameter instance', ()=>{
-  //   try{
-  //   const config={
-  //       url:"example.com",
-  //      method:'GET',
-  //       enabled: true
-  //   }
-  //    //@ts-expect-error checking undefined instance
-  //   renderHook(()=> useAxios(config))
-  //   }catch(error){
-  //       if(error instanceof Error){
-  //           expect(error).toBeInstanceOf(Error)
-  //           expect(error.message).toBe(
-  //               'useAxios must be initialized with an instance of axios'
-  //           )
-  //       }
-
-  //   }
-  // })
+  it("throws error if config is undefined", () => {
+    const config = undefined;
+    //@ts-expect-error: checking undefined config
+    expect(() => renderHook(() => useAxios(config))).toThrowError(
+      "useAxios must be initialized with config params"
+    );
+  });
+  it("throw error if config is undefined", () => {
+    try {
+      const config = undefined;
+      //@ts-expect-error: checking undefined config
+      renderHook(() => useAxios(config));
+    } catch (error) {
+      if (error instanceof Error) {
+        expect(error).toBeInstanceOf(Error);
+        expect(error.message).toBe(
+          "useAxios must be initialized with config params"
+        );
+      }
+    }
+  });
+  it("throw error if the config missing a parameter instance", () => {
+    try {
+      const config = {
+        url: "example.com",
+        method: "GET",
+        enabled: true,
+      };
+      //@ts-expect-error checking undefined instance
+      renderHook(() => useAxios(config));
+    } catch (error) {
+      if (error instanceof Error) {
+        expect(error).toBeInstanceOf(Error);
+        expect(error.message).toBe(
+          "useAxios must be initialized with an instance of axios"
+        );
+      }
+    }
+  });
   it("sets loading state correctly", async () => {
     const config = {
       instance: axios,

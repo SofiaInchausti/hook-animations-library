@@ -7,7 +7,7 @@ export default mergeConfig(
   defineConfig({
     test: {
       globals: true,
-      setupFiles: [],
+      setupFiles: './tests/setup',
       environment: 'jsdom',
       coverage: {
         thresholds: {
@@ -16,7 +16,7 @@ export default mergeConfig(
           branches: 30,
           statements: 30
         }
-      }
+      },
     }
   })
 )
