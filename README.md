@@ -1,32 +1,87 @@
-Hooks de Estado y Efectos
-useToggle: Un hook para alternar entre verdadero y falso.
-usePrevious: Un hook para obtener el valor anterior de una variable de estado o prop.
-useInterval: Un hook para manejar intervalos de tiempo.
-useTimeout: Un hook para manejar temporizadores.
-useDebounce: Un hook para implementar la lógica de debounce en funciones o valores.
-Hooks de Formularios
-useForm: Un hook para manejar formularios, validaciones y envío.
-useInput: Un hook para manejar inputs de formularios.
-useValidation: Un hook para manejar validaciones personalizadas en formularios.
-Hooks de Fetching
-useFetch: Un hook para realizar peticiones HTTP y manejar el estado de carga y errores.
-usePaginatedFetch: Un hook para manejar la paginación en peticiones HTTP.
-useInfiniteScroll: Un hook para implementar la lógica de scroll infinito.
-Hooks de Animaciones
-useSpring: Un hook para animaciones basadas en física de resortes.
-useTransition: Un hook para manejar transiciones entre estados.
-useAnimationFrame: Un hook para ejecutar una función en cada frame de la animación.
-Hooks de Manejo de Eventos
-useEventListener: Un hook para agregar y eliminar listeners de eventos de forma limpia.
-useWindowSize: Un hook para obtener y reaccionar a cambios en el tamaño de la ventana.
-useScrollPosition: Un hook para obtener y reaccionar a cambios en la posición de scroll.
-Hooks de Utilidades Varias
-useLocalStorage: Un hook para manejar el estado sincronizado con localStorage.
-useMediaQuery: Un hook para manejar queries de medios (media queries).
-useHover: Un hook para detectar cuando un elemento está siendo hovereado.
-useFocus: Un hook para manejar el foco en elementos.
-useClipboard: Un hook para copiar y pegar texto desde el portapapeles.
-Otros Hooks Útiles
-useOnlineStatus: Un hook para detectar si el usuario está en línea o fuera de línea.
-useGeolocation: Un hook para obtener la geolocalización del usuario.
-useDarkMode: Un hook para manejar el modo oscuro y claro en la aplicación.
+# 📦 ReactHookToolbox #
+
+
+A collection of custom React hooks designed to simplify common tasks in your React applications. This library provides utility hooks for handling HTTP requests, managing clipboard actions, responding to events, tracking focus, hover states, infinite scrolling, local storage management, online/offline status, and window resize events.
+
+### ✨ Features ###
+* useAxios: Simplify HTTP requests using Axios with built-in loading and error handling.
+* useClipboard: Easily copy text to the clipboard and track the success of the operation.
+* useEvent: Attach and manage event listeners with automatic cleanup.
+* useFocus: Track and manage focus states of DOM elements.
+* useHover: Detect when a user hovers over an element.
+* useInfiniteScroll: Implement infinite scrolling by observing a sentinel element.
+* useLocalStorage: Manage and persist state in local storage with ease.
+* useOnlineStatus: Monitor the online/offline status of the user.
+* useWindowResize: Track window resize events and react to changes in viewport size.
+
+### 📚 Installation ###
+Install the library using npm or yarn:
+```bash
+npm install custom-hooks-library
+```
+or
+```bash
+yarn add custom-hooks-library
+```
+
+### 🚀 Here's how you can start using the hooks in your project: ###
+
+#### useAxios ####
+```bash
+import { useAxios } from 'custom-hooks-library';
+
+const { data, error, loading } = useAxios('/api/data');
+```
+
+#### useClipboard ####
+```bash
+import { useClipboard } from 'custom-hooks-library';
+
+const { copyToClipboard, isCopied } = useClipboard();
+copyToClipboard('Hello, World!');
+```
+
+##### useEvent ####
+```bash
+import { useEvent } from 'custom-hooks-library';
+
+useEvent('scroll', handleScroll, window);
+```
+
+#### useFocus ####
+```bash
+import { useFocus } from 'custom-hooks-library';
+
+const { ref, isFocused } = useFocus();
+```
+
+#### useInfiniteScroll #####
+```bash
+import { useInfiniteScroll } from 'custom-hooks-library';
+
+const { sentinelRef, loadMore, hasMore } = useInfiniteScroll(loadMoreData);
+```
+
+#### useLocalStorage ####
+```bash
+import { useLocalStorage } from 'custom-hooks-library';
+
+const [value, setValue] = useLocalStorage('key', 'defaultValue');
+```
+
+#### useOnlineStatus ####
+```bash
+import { useOnlineStatus } from 'custom-hooks-library';
+
+const isOnline = useOnlineStatus();
+```
+
+### useWindowResize ####
+```bash
+import { useWindowResize } from 'custom-hooks-library';
+
+const { width, height } = useWindowResize();
+```
+
+### 🛠 Contributing ####
+Contributions are welcome! If you'd like to contribute, please fork the repository and use a feature branch. Pull requests are warmly welcome.
