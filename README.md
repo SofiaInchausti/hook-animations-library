@@ -17,25 +17,25 @@ A collection of custom React hooks designed to simplify common tasks in your Rea
 ### 📚 Installation ###
 Install the library using npm or yarn:
 ```bash
-npm install custom-hooks-library
+npm install react-hook-toolbox
 ```
 or
 ```bash
-yarn add custom-hooks-library
+yarn add react-hook-toolbox
 ```
 
 ### 🚀 Here's how you can start using the hooks in your project: ###
 
 #### useAxios ####
 ```bash
-import { useAxios } from 'custom-hooks-library';
+import { useAxios } from 'react-hook-toolbox';
 
 const { data, error, loading } = useAxios('/api/data');
 ```
 
 #### useClipboard ####
 ```bash
-import { useClipboard } from 'custom-hooks-library';
+import { useClipboard } from 'react-hook-toolbox';
 
 const { copyToClipboard, isCopied } = useClipboard();
 copyToClipboard('Hello, World!');
@@ -43,42 +43,42 @@ copyToClipboard('Hello, World!');
 
 ##### useEvent ####
 ```bash
-import { useEvent } from 'custom-hooks-library';
+import { useEvent } from 'react-hook-toolbox';
 
 useEvent('scroll', handleScroll, window);
 ```
 
 #### useFocus ####
 ```bash
-import { useFocus } from 'custom-hooks-library';
+import { useFocus } from 'react-hook-toolbox';
 
 const { ref, isFocused } = useFocus();
 ```
 
 #### useInfiniteScroll #####
 ```bash
-import { useInfiniteScroll } from 'custom-hooks-library';
+import { useInfiniteScroll } from 'react-hook-toolbox';
 
 const { sentinelRef, loadMore, hasMore } = useInfiniteScroll(loadMoreData);
 ```
 
 #### useLocalStorage ####
 ```bash
-import { useLocalStorage } from 'custom-hooks-library';
+import { useLocalStorage } from 'react-hook-toolbox';
 
 const [value, setValue] = useLocalStorage('key', 'defaultValue');
 ```
 
 #### useOnlineStatus ####
 ```bash
-import { useOnlineStatus } from 'custom-hooks-library';
+import { useOnlineStatus } from 'react-hook-toolbox';
 
 const isOnline = useOnlineStatus();
 ```
 
 ### useWindowResize ####
 ```bash
-import { useWindowResize } from 'custom-hooks-library';
+import { useWindowResize } from 'react-hook-toolbox';
 
 const { width, height } = useWindowResize();
 ```
