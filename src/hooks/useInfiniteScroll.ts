@@ -1,17 +1,17 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from "react";
 
 interface UseInfiniteScrollOptions {
-  root?: Element | null; 
+  root?: Element | null;
   rootMargin?: string;
   threshold?: number;
-  hasMore: boolean; 
-  loadMore: () => void; 
+  hasMore: boolean;
+  loadMore: () => void;
   loading: boolean;
 }
 
 function useInfiniteScroll({
   root = null,
-  rootMargin = '0px',
+  rootMargin = "0px",
   threshold = 0.1,
   hasMore,
   loadMore,
@@ -24,11 +24,14 @@ function useInfiniteScroll({
     if (loading) return;
 
     if (!observerRef.current) {
-      observerRef.current = new IntersectionObserver((entries) => {
-        if (entries[0].isIntersecting && hasMore) {
-          loadMore();
-        }
-      }, { root, rootMargin, threshold });
+      observerRef.current = new IntersectionObserver(
+        (entries) => {
+          if (entries[0].isIntersecting && hasMore) {
+            loadMore();
+          }
+        },
+        { root, rootMargin, threshold }
+      );
     }
 
     const observer = observerRef.current;

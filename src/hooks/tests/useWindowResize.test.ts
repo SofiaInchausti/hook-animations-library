@@ -22,5 +22,4 @@ describe('useWindowResize',()=>{
         fireEvent(window, new Event('resize'))
         expect(result.current).toStrictEqual({ width: 520, height: 610 })
       })
-    
 })

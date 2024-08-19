@@ -97,22 +97,19 @@ describe("useInfiniteScroll", () => {
   });
 
   test("should not call loadMore when loading is true", async () => {
-    const loadMore = vi.fn();
-  
+    const loadMore = vi.fn(); 
     render(<TestComponent loadMore={loadMore} loading={true} />);
-  
-    // Simula un periodo de tiempo para verificar que `loadMore` no se llame
     await waitFor(() => expect(loadMore).not.toHaveBeenCalled());
   });
+
   test("should handle different thresholds correctly", async () => {
     const loadMore = vi.fn();
-  
     render(<TestComponent loadMore={loadMore} threshold={0.5} />);
-  
     await waitFor(() => {
       expect(loadMore).toHaveBeenCalled();
     });
   });
+
   test("should unobserve when the component unmounts", async () => {
     const mockUnobserve = vi.fn();
     
@@ -134,28 +131,13 @@ describe("useInfiniteScroll", () => {
   
     expect(mockUnobserve).toHaveBeenCalled();
   });
-  // test("should handle custom root elements", async () => {
-  //   const loadMore = vi.fn();
-  //   const rootElement = document.createElement('div');
-  
-  //   render(<TestComponent loadMore={loadMore} root={rootElement} />);
-  
-  //   await waitFor(() => {
-  //     expect(loadMore).toHaveBeenCalled();
-  //   });
-  // });
+
   test("should not call loadMore when hasMore is false, even on multiple intersections", async () => {
     const loadMore = vi.fn();
-  
     render(<TestComponent hasMore={false} loadMore={loadMore} />);
-  
     await waitFor(() => expect(loadMore).not.toHaveBeenCalled());
-  
-    // Simula múltiples intersecciones
     for (let i = 0; i < 3; i++) {
       await waitFor(() => expect(loadMore).not.toHaveBeenCalled());
     }
   });
-  
-  
 });

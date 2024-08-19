@@ -1,5 +1,4 @@
 import { act, renderHook } from '@testing-library/react'
-
 import { useEvent } from '../useEvent'
 import { describe, it, vi, expect } from 'vitest'
 
@@ -17,7 +16,7 @@ describe('useEvent', () => {
     const fn = vi.fn()
     const { result, rerender } = renderHook(() => useEvent(fn))
     const eventHandlerOne = result.current
-    rerender() // emulamos un cambio de estado
+    rerender()
     const eventHandlerTwo = result.current
     expect(eventHandlerOne).toStrictEqual(eventHandlerTwo)
   })

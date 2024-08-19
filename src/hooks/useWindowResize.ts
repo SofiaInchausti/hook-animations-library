@@ -1,31 +1,26 @@
-import * as React from 'react'
+import { useEffect, useState } from "react";
 
 interface UseWindowsResize {
-  width: number
-  height: number
+  width: number;
+  height: number;
 }
 
-export function useWindowsResize (): UseWindowsResize {
-  const [windowsSize, setWindowsSize] = React.useState({
+export function useWindowsResize(): UseWindowsResize {
+  const [windowsSize, setWindowsSize] = useState({
     width: window.innerWidth,
-    height: window.innerHeight
-  })
+    height: window.innerHeight,
+  });
 
   const onResize = (): void => {
-    // callback()
     setWindowsSize({
       width: window.innerWidth,
-      height: window.innerHeight
-    })
-  }
+      height: window.innerHeight,
+    });
+  };
 
-  React.useEffect(() => {
-    window.addEventListener('resize', onResize)
-    // ¿cleanup?
-    return () => {
-      window.removeEventListener('resize', onResize)
-    }
-  })
+  useEffect(() => {
+    window.addEventListener("resize", onResize);
+  },[]);
 
-  return windowsSize
+  return windowsSize;
 }
