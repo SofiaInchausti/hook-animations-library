@@ -1,5 +1,5 @@
-import { renderHook, act, waitFor } from "@testing-library/react";
-import { useClipboard } from "../useClipboard";
+import { renderHook, act, waitFor } from '@testing-library/react';
+import { useClipboard } from '../useClipboard';
 
 const mockWriteText = vi.fn();
 Object.assign(navigator, {
@@ -8,25 +8,25 @@ Object.assign(navigator, {
   },
 });
 
-describe("useClipboard", () => {
+describe('useClipboard', () => {
   beforeEach(() => {
     vi.clearAllMocks();
   });
-  
-//   it("should copy text to clipboard and update isCopied state", async () => {
-//     const { result } = renderHook(() => useClipboard("Hello, World!"));
-//     const mockWriteText = vi.spyOn(navigator.clipboard, "writeText").mockImplementation(() => Promise.resolve());
-//     result.current.copyToClipboard("Hello, World!");
-//     waitFor(() => expect(mockWriteText).toHaveBeenCalledWith("Hello, World!"));
-//     waitFor(() => expect(result.current.isCopied).toBe(true));
-//     mockWriteText.mockRestore();
-//   });
 
-  it("should handle clipboard write failure gracefully", async () => {
-    mockWriteText.mockRejectedValue(new Error("Failed to write to clipboard"));
-    const { result } = renderHook(() => useClipboard("Hello, World!"));
+  //   it("should copy text to clipboard and update isCopied state", async () => {
+  //     const { result } = renderHook(() => useClipboard("Hello, World!"));
+  //     const mockWriteText = vi.spyOn(navigator.clipboard, "writeText").mockImplementation(() => Promise.resolve());
+  //     result.current.copyToClipboard("Hello, World!");
+  //     waitFor(() => expect(mockWriteText).toHaveBeenCalledWith("Hello, World!"));
+  //     waitFor(() => expect(result.current.isCopied).toBe(true));
+  //     mockWriteText.mockRestore();
+  //   });
+
+  it('should handle clipboard write failure gracefully', async () => {
+    mockWriteText.mockRejectedValue(new Error('Failed to write to clipboard'));
+    const { result } = renderHook(() => useClipboard('Hello, World!'));
     act(() => {
-      result.current.copyToClipboard("Hello, World!");
+      result.current.copyToClipboard('Hello, World!');
     });
     expect(result.current.isCopied).toBe(false);
   });
@@ -36,7 +36,7 @@ describe("useClipboard", () => {
       value: undefined, // Forzar que navigator.clipboard sea undefined
     });
 
-    const { result } = renderHook(() => useClipboard("Hello, World!"));
+    const { result } = renderHook(() => useClipboard('Hello, World!'));
 
     document.execCommand = vi.fn().mockImplementation(() => true);
 
@@ -51,7 +51,7 @@ describe("useClipboard", () => {
     Object.defineProperty(navigator, 'clipboard', {
       value: undefined,
     });
-    const { result } = renderHook(() => useClipboard("Hello, World!"));
+    const { result } = renderHook(() => useClipboard('Hello, World!'));
     document.execCommand = vi.fn().mockImplementation(() => false);
     await waitFor(async () => {
       result.current.copyToClipboard('Sample text');

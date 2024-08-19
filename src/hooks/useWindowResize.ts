@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 interface UseWindowsResize {
   width: number;
@@ -19,8 +19,8 @@ export function useWindowsResize(): UseWindowsResize {
   };
 
   useEffect(() => {
-    window.addEventListener("resize", onResize);
-  },[]);
+    window.addEventListener('resize', onResize);
+  }, []);
 
   return windowsSize;
 }

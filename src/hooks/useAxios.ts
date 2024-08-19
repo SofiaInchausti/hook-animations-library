@@ -3,10 +3,10 @@ import {
   type AxiosInstance,
   type AxiosRequestConfig,
   type Method,
-} from "axios";
-import useDeepCompareEffect from "use-deep-compare-effect";
-import { setCommonHeaders } from "../utils/headers";
-import { useCallback, useEffect, useRef, useState } from "react";
+} from 'axios';
+import useDeepCompareEffect from 'use-deep-compare-effect';
+import { setCommonHeaders } from '../utils/headers';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 interface Config extends AxiosRequestConfig {
   instance: AxiosInstance;
@@ -32,9 +32,9 @@ interface UseAxios<T> {
 
 export const useAxios = <T>(config: Config): UseAxios<T> => {
   if (config === undefined)
-    throw new Error("useAxios must be initialized with config params");
+    throw new Error('useAxios must be initialized with config params');
   if (config.instance === undefined)
-    throw new Error("useAxios must be initialized with an instance of axios");
+    throw new Error('useAxios must be initialized with an instance of axios');
 
   const configRef = useRef(config);
   const { instance } = configRef.current;
@@ -42,7 +42,7 @@ export const useAxios = <T>(config: Config): UseAxios<T> => {
   setCommonHeaders(instance);
 
   const [response, setResponse] = useState<T | null>(null);
-  const [error, setError] = useState<Error>("");
+  const [error, setError] = useState<Error>('');
   const [loading, setLoading] = useState<boolean>(config.enabled ?? false);
   const requestInterceptorRef = useRef<number | null>(null);
 
@@ -80,7 +80,7 @@ export const useAxios = <T>(config: Config): UseAxios<T> => {
     if (e instanceof AxiosError) {
       setError(e.message);
     } else {
-      setError("Request failed with status code 500");
+      setError('Request failed with status code 500');
     }
   };
 

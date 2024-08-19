@@ -12,7 +12,8 @@
     "preview": "vite preview",
     "prepare": "husky install",
     "test": "vitest run --coverage",
-    "test:watch": "vitest --watch"
+    "test:watch": "vitest --watch",
+    "format": "prettier --write 'src/**/*.{js,ts,jsons,md}'"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^6.4.6",
@@ -46,6 +47,7 @@
     "husky": "^8.0.0",
     "jsdom": "^24.1.0",
     "lint-staged": "^15.2.7",
+    "prettier": "^3.3.3",
     "typescript": "^5.2.2",
     "typescript-eslint": "^7.16.0",
     "use-deep-compare-effect": "^1.8.1",

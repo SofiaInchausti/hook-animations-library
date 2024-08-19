@@ -9,7 +9,7 @@ module.exports = {
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parser: '@typescript-eslint/parser',
-  plugins: ['react-refresh', "simple-import-sort", 'react-hooks'],
+  plugins: ['react-refresh', 'simple-import-sort', 'react-hooks', 'prettier'],
   rules: {
     'react-refresh/only-export-components': [
       'warn',
@@ -17,6 +17,8 @@ module.exports = {
     ],
     'simple-import-sort/imports': 'error',
     'simple-import-sort/exports': 'errro',
-    'no-console': 'warn', '@typescript-eslint/no-explicit-any': 'error'
+    'no-console': 'warn',
+    '@typescript-eslint/no-explicit-any': 'error',
+    'prettier/prettier': 'error',
   },
-}
+};

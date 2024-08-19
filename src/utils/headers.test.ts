@@ -1,15 +1,14 @@
-import { describe, it, expect, beforeEach} from 'vitest';
+import { describe, it, expect, beforeEach } from 'vitest';
 import axios, { AxiosInstance } from 'axios';
 import { setCommonHeaders } from './headers';
 
-
 // Mocks
-const localStorageMock = (function() {
+const localStorageMock = (function () {
   let store: Record<string, string> = {};
   return {
     getItem: (key: string) => store[key] || null,
-    setItem: (key: string, value: string) => store[key] = value.toString(),
-    clear: () => store = {},
+    setItem: (key: string, value: string) => (store[key] = value.toString()),
+    clear: () => (store = {}),
   };
 })();
 global.localStorage = localStorageMock;
@@ -31,10 +30,16 @@ describe('setCommonHeaders', () => {
     setCommonHeaders(instance);
 
     // Check headers
-    expect(instance.defaults.headers.common['Content-Type']).toBe('application/json');
+    expect(instance.defaults.headers.common['Content-Type']).toBe(
+      'application/json'
+    );
     expect(instance.defaults.headers.common['Accept']).toBe('application/json');
-    expect(instance.defaults.headers.common['Authorization']).toBe('Bearer mockToken');
-    expect(instance.defaults.headers.common['Custom-Header']).toBe('customValue');
+    expect(instance.defaults.headers.common['Authorization']).toBe(
+      'Bearer mockToken'
+    );
+    expect(instance.defaults.headers.common['Custom-Header']).toBe(
+      'customValue'
+    );
   });
 
   it('should not set Authorization header if no token is present', () => {

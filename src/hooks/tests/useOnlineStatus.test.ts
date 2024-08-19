@@ -9,12 +9,12 @@ describe('useOnlineStatus', () => {
 
   it('should not update status to online when an unrelated event is triggered', () => {
     const { result } = renderHook(() => useOnlineStatus());
-  
+
     // Act: Dispatch an unrelated event, like "click"
     act(() => {
       window.dispatchEvent(new Event(''));
     });
-  
+
     // Assert: Check that isOnline has not changed (it should still be the initial value)
     const expectedInitialValue = navigator.onLine; // or true/false depending on initial state
     expect(result.current).toBe(expectedInitialValue);

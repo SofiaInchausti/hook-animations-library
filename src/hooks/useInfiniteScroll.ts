@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef } from 'react';
 
 interface UseInfiniteScrollOptions {
   root?: Element | null;
@@ -11,7 +11,7 @@ interface UseInfiniteScrollOptions {
 
 function useInfiniteScroll({
   root = null,
-  rootMargin = "0px",
+  rootMargin = '0px',
   threshold = 0.1,
   hasMore,
   loadMore,
